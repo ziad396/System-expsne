@@ -29,13 +29,13 @@ Route::middleware(['auth', 'admin'])->controller(AdminController::class)->group(
     Route::put('adminpanal/update/{id}', 'updateUser')->name('update.done');
     Route::get('adminpanal/use/insert', 'create')->name('insert.user');
     Route::post('adminpanal/user/addedd', 'insertUser')->name('insert.done');
-    // Route::delete('adminpanal/delete/{id}', 'deleteUser')->name('delete.user');
+
      Route::delete('adminpanal/user/delete/{user}', 'deleteUser')->name('delete.user');
     //manage expense
     Route::get('manage/expense', 'createExpense')->name('expense.manage');
     Route::get('adminpanal/expense/{id}/edit', 'editExpense')->name('update.expense');
     Route::put('adminpanal/expense/update/{id}', 'updateExpense')->name('edit.done');
-    // Route::delete('adminpanal/delete/{id}', 'deleteExpense')->name('delete.expense');
+
      Route::delete('adminpanal/expense/delete/{expense}', 'deleteExpense')->name('delete.expense');
 });
 
