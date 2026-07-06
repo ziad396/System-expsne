@@ -76,13 +76,13 @@ class ExpenseController extends Controller
         $expense = Expense::findOrFail($id);
         $category = Category::all();
         $user = auth()->user();
-        if ($user->roles->contains('name', 'admin')) {
-            # code...
-            return view('expense.update', compact('expense', 'category'));
-        } else {
+        // if ($user->roles->contains('name', 'admin')) {
+        //     # code...
+        //     return view('expense.update', compact('expense', 'category'));
+        // } else {
             $this->authorize('update', $expense);
             return view('expense.update', compact('expense', 'category'));
-        }
+        // }
 
     }
 
@@ -109,13 +109,13 @@ class ExpenseController extends Controller
         //
         $expense = Expense::findOrFail($id);
         $user = auth()->user();
-        if ($user->roles->contains('name', 'role')) {
-            # code...
-            $expense->delete();
-        } else {
+        // if ($user->roles->contains('name', 'role')) {
+        //     # code...
+        //     $expense->delete();
+        // } else {
             $this->authorize('delete', $expense);
             $expense->delete();
-        }
+        // }
 
 
         return redirect('expense');
